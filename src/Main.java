@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -62,13 +59,12 @@ public class Main {
                     // скелет <50
                     if ((bt.getRandomValue()) >= 50) {
 
-                        System.out.println(bt.war_game(chevalier1, skeleton1));
+                        command = bt.war_game(chevalier1, skeleton1);
 
                         // гоблин >50
                     } else {
 
-
-                        System.out.println(bt.war_game(chevalier1, goblin1));
+                        command = bt.war_game(chevalier1, goblin1);
                     }
 
                 }

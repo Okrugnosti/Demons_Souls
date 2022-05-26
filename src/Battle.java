@@ -2,7 +2,7 @@ import java.util.Random;
 import java.lang.Math;
 
 // класс с логикой сражения
-public class Battle {
+public class Battle implements Runnable{
 
     Random random = new Random();
 
@@ -15,7 +15,7 @@ public class Battle {
 
         System.out.println(chevalier.getName() + " vs " + soul.getName());
 
-        int chevalier_vitality = chevalier.getVitality();
+        int chevalier_vitality = chevalier.getReal_vitalityVitality();
         int soul_vitality = soul.getVitality();
         boolean battle_run = true;
 
@@ -38,15 +38,15 @@ public class Battle {
             if ((chevalier_vitality <= 0) | (soul_vitality <= 0)) {
                 if (chevalier_vitality > soul_vitality) {
                     System.out.println("Win Chevalier");
-                    chevalier.setVitality(chevalier_vitality);
+                    chevalier.setReal_vitalityVitality(chevalier_vitality);
                     chevalier.setMoney(chevalier.getMoney() + soul.getMoney());
                     chevalier.setExperience(chevalier.getExperience() + soul.getExperience());
-                    return 1;
+                    return 0;
 
                 } else {
-                    System.out.println("Win Soul");
-                    chevalier.setVitality(chevalier_vitality);
-                    return 2;
+                    System.out.println("Win Soul. Goodbye Chevalier!");
+                    chevalier.setReal_vitalityVitality(chevalier_vitality);
+                    return 3;
                 }
 
                 // battle_run = false;
@@ -54,5 +54,10 @@ public class Battle {
 
         }
         return 1;
+    }
+
+    @Override
+    public void run() {
+
     }
 }
