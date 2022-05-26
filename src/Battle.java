@@ -2,7 +2,7 @@ import java.util.Random;
 import java.lang.Math;
 
 // класс с логикой сражения
-public class Battle implements Runnable{
+public class Battle extends Thread{
 
     Random random = new Random();
 
@@ -58,6 +58,7 @@ public class Battle implements Runnable{
 
     @Override
     public void run() {
+
 
     }
 }

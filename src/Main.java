@@ -8,17 +8,17 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         //1. введите имя персонажа
         System.out.println("Enter the name of the Chevalier"); // Для начала игры, введите имя вашего персонажа
-        //String name = scanner.nextLine();
+        String name = scanner.nextLine();
 
         // создаем ПЕРСОНАЖА и выводим его базовые параметры на экран
         Soul chevalier1 = new Chevalier();
-        //chevalier1.setName(name);
-        chevalier1.setName("Chevalier");
-        chevalier1.get_param_soul();
+        chevalier1.setName(name);
+        //chevalier1.setName("Chevalier");
+        //chevalier1.get_param_soul();
 
         // создаем ГОБЛИНА и выводим его базовые параметры на экран
         Soul goblin1 = new Goblin();
-        goblin1.get_param_soul();
+        //goblin1.get_param_soul();
 
         // создаем СКЕЛЕТОНА и выводим его базовые параметры на экран
         Soul skeleton1 = new Skeleton();
@@ -29,6 +29,9 @@ public class Main {
         // создаем ДИЛЛЕРА
         Dealer dealer1 = new Dealer(chevalier1, 50, 100, 10);
 
+        // создаем БОЙ
+        Battle bt = new Battle();
+        //Thread tr = new Thread(bt);
 
         //запуск игрового цикла
         while (command != 3) {
@@ -53,18 +56,19 @@ public class Main {
                 // Go to Battle in the Dark wood
                 if (command == 2) {
                     System.out.println("Go to Battle in the Dark wood\n");
-                    Battle bt = new Battle();
 
                     // выбирает какого монстра выбрать для боя
                     // скелет <50
                     if ((bt.getRandomValue()) >= 50) {
 
                         command = bt.war_game(chevalier1, skeleton1);
+                        //bt.start();
 
                         // гоблин >50
                     } else {
 
                         command = bt.war_game(chevalier1, goblin1);
+                        //bt.start();
                     }
 
                 }
@@ -84,6 +88,3 @@ public class Main {
         System.out.println("Goodbye Chevalier\n");
     }
 }
-
-// завершение игры при поражении
-// проверить условия покупки цветков
