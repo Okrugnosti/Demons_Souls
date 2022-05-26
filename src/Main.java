@@ -16,7 +16,7 @@ public class Main {
         // создаем ПЕРСОНАЖА и выводим его базовые параметры на экран
         Soul chevalier1 = new Chevalier();
         //chevalier1.setName(name);
-        chevalier1.setName("chevalier1");
+        chevalier1.setName("Chevalier");
         chevalier1.get_param_soul();
 
         // создаем ГОБЛИНА и выводим его базовые параметры на экран
@@ -56,6 +56,21 @@ public class Main {
                 // Go to Battle in the Dark wood
                 if (command == 2) {
                     System.out.println("Go to Battle in the Dark wood\n");
+                    Battle bt = new Battle();
+
+                    // выбирает какого монстра выбрать для боя
+                    // скелет <50
+                    if ((bt.getRandomValue()) >= 50) {
+
+                        System.out.println(bt.war_game(chevalier1, skeleton1));
+
+                        // гоблин >50
+                    } else {
+
+
+                        System.out.println(bt.war_game(chevalier1, goblin1));
+                    }
+
                 }
 
                 //исключение, если команда не 1, 2, 3
@@ -73,3 +88,6 @@ public class Main {
         System.out.println("Goodbye Chevalier\n");
     }
 }
+
+// завершение игры при поражении
+// проверить условия покупки цветков

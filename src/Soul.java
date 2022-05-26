@@ -1,3 +1,5 @@
+import java.util.Random;
+
 // базовый интерфейс с характеристиками персонажей
 public abstract class Soul {
 
@@ -51,6 +53,20 @@ public abstract class Soul {
         System.out.println("Money : " + this.money + "\n");
 
     }
+
+    public int getRandomValue() {
+        Random random = new Random();
+        return random.nextInt(100);
+    }
+
+    public int attack() {
+
+        if ((this.agility * 3) > getRandomValue()) {
+            if (80 > getRandomValue()) {return this.damage;} else return 0;
+        } else return 0;
+
+    }
+
 
 
     // ** ПАЧКА СЕТТЕРОВ **
